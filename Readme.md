@@ -18,7 +18,7 @@
 
    9. Fluntd		
 
-   10. Spinnaker	
+   10. Spinnaker	(Kubernetes cluster with atleast 4 cores and 8GB memory)
 
    11. Jaeger	
 
