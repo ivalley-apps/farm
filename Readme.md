@@ -23,7 +23,7 @@
    11. Jaeger	
 
    12. litmuschaos		
-   
+
    13 KeyCloak
 
 ## Prerequsites
@@ -39,4 +39,4 @@
 
 ## For Simple cluster creation
 
-#./run.sh --type simple --child=2 --master-ip-1=<<ipaddress>> --node-ip-1=<<ipaddress>> --node-ip-2=<<ipaddress>> --master-user-1=<<username>> --master-password-1=<<password>> --node-user-1=<<user>> --node-user-2=<<user>> --node-password-1=<<password>> --node-password-2=<<password>> 
+        ./run.sh --type simple --child=2 --master-ip-1=<<ipaddress>> --node-ip-1=<<ipaddress>> --node-ip-2=<<ipaddress>> --master-user-1=<<username>> --master-password-1=<<password>> --node-user-1=<<user>> --node-user-2=<<user>> --node-password-1=<<password>> --node-password-2=<<password>> 
