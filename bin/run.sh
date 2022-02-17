@@ -24,6 +24,9 @@ helpFunction()
    exit 1 # Exit script after printing help
 }
 
+
+
+
 setupTerraform()
 {
     sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
@@ -64,6 +67,7 @@ simpleCluster()
 {
     echo "simple cluster creation"
     #install required dependencies
+    checkAllSystemConnectionsAreOk()
     setupTerraform()
     pushd kubernetics/simple 
     #Setup a cluser in master node

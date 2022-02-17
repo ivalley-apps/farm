@@ -1,3 +1,6 @@
+## Full Documentation
+
+   https://www.ivalley.app/docs/
 ## Techologies 
 
    1. Terraform		
@@ -18,7 +21,7 @@
 
    9. Fluntd		
 
-   10. Spinnaker	(Kubernetes cluster with atleast 4 cores and 8GB memory)
+   10. Argo CD 
 
    11. Jaeger	
 
@@ -28,17 +31,6 @@
 
    14. RabbitMQ 
 
-## Prerequsites
-   
-    1. All servers are up with ubundu server : https://releases.ubuntu.com/20.04/
 
 
-    2. Install  Git, Open ssh and net tools
 
-       sudo apt update
-       sudo apt install git openssh-server net-tools
-       sudo ufw allow ssh  
-
-## For Simple cluster creation
-
-        ./run.sh 
