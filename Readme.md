@@ -10,7 +10,7 @@
    
 ## Supported OS    
 
-     - Suppored Based OS is Ubundu 
+     -  Ubuntu Linux 20.04 LTS
 
 ## Techologies 
 
