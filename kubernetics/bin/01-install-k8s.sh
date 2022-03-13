@@ -28,19 +28,19 @@ sudo sysctl --system
 
 
 
-# Ensure you load modules
-sudo modprobe overlay
-sudo modprobe br_netfilter
+# # Ensure you load modules
+# sudo modprobe overlay
+# sudo modprobe br_netfilter
 
-# Set up required sysctl params
-sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-net.ipv4.ip_forward = 1
-EOF
+# # Set up required sysctl params
+# sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
+# net.bridge.bridge-nf-call-ip6tables = 1
+# net.bridge.bridge-nf-call-iptables = 1
+# net.ipv4.ip_forward = 1
+# EOF
 
-# Reload sysctl
-sudo sysctl --system
+# # Reload sysctl
+# sudo sysctl --system
 
 # Add Cri-o repo
 

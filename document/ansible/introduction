@@ -1,0 +1,31 @@
+# Major operation part 1
+
+  1) security in system
+  2) swap setting
+  3) Runtime 
+  4) kubernetics 
+  5) kubernetics certificate,users, roles
+  6) storage
+  7) logging 
+  8) secret storage (vault)
+
+
+# Major operation part 2
+
+  8)  monitering
+  9)  devops 
+  10) development tools 
+  12) chaos
+  13) administration
+  14) sso server for apps / ldap
+
+# Major operation part 3
+
+  15) Failover setting / DR 
+  16) Update kubernetics version
+  18) update Runtime version
+
+
+
+
+  

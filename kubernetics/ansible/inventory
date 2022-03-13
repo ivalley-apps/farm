@@ -1,0 +1,20 @@
+# Applicaton server 
+[master-node]
+192.168.60.4
+
+[worker-node]
+192.168.60.5
+192.168.60.6
+
+
+# All the servers
+[multi:children]
+master-node
+worker-node
+
+
+# variables for all the users
+
+[multi:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key 

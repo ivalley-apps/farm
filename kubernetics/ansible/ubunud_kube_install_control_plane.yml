@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    - version: My Landing Page
+    - ip: This is my landing page description.
+  tasks: 
+    - name: install curl 
+      become: yes
+      apt: 
+        name: curl 
+        state: present
+    - name: install apt-transport-https
+      become: yes  
+      apt: 
+        name: apt-transport-https 
+        state: present   
+    - name: adding kubernetics key 
+      become: yes
+      apt_key: 
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+    - name: adding source list in 
+      become: yes
+      shell: echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+    - name: Install packages
+      become: yes
+      shell: |
+        apt -y install vim git curl wget kubelet kubeadm kubectl
+        apt-mark hold kubelet kubeadm kubectl
+        sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+        swapoff -a
+        modprobe overlay
+        modprobe br_netfilter 
+    
+   
+      
+
