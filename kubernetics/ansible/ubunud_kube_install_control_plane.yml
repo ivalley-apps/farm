@@ -2,8 +2,8 @@
 - hosts: all
   become: yes
   vars:
-    - version: My Landing Page
-    - ip: This is my landing page description.
+    - OS: xUbuntu_20.04
+    - VERSION: 1.22
   tasks: 
     - name: install curl 
       become: yes
@@ -23,9 +23,9 @@
     - name: adding source list in 
       become: yes
       shell: echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-    - name: Update and upgrade apt packages
-      apt:
-        update_cache: yes
+    - name: Update cache
+      become: yes
+      apt: update_cache=yes
     - name: Install packages
       become: yes
       shell: |
