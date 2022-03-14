@@ -60,6 +60,7 @@ curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:sta
 
 
 # Update CRI-O CIDR subnet
+# TODO need to check
 sudo sed -i 's/10.85.0.0/192.168.0.0/g' /etc/cni/net.d/100-crio-bridge.conf
 
 
