@@ -45,3 +45,25 @@
    15. Ansible
 
 
+## ROADMAP 
+
+# (single cluster) (major release 1)
+
+   1. kubernetes configurate and install in single cluster (IN-PROGRESS)
+   2. Runtime setup (IN-PROGRESS)
+   2. kubernetes security , Certificate, Roles and policy (TODO)
+   3. kubernets storage  (TODO)
+   4. kubernets logging (TODO)
+
+# Single Cluster (major release 2) (NOT YET STARTED)
+
+  1) monitering tools
+  2) devop tools
+  3) development tools 
+  4) chaos
+  5) sso server for apps 
+#  Single Cluster (major release 2) (NOT YET STARTED)
+
+  15) Failover setting / DR 
+  16) Update kubernetics version
+  18) update Runtime version
