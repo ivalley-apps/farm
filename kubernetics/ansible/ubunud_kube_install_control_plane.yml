@@ -1,9 +1,12 @@
 ---
 - hosts: all
   become: yes
-  vars:
+  vars: 
     - OS: xUbuntu_20.04
     - VERSION: 1.22
+    - POD_NETWORK: 192.168.0.0/16
+    - CONTROL_PLANE_ENDPOINT: k8s-cluster.ivalley.app
+    - CONTROL_PANE_USER: sarath
   tasks: 
     - name: install curl 
       become: yes
@@ -68,3 +71,28 @@
          systemctl restart crio
          systemctl enable crio
          systemctl status crio  
+         lsmod | grep br_netfilter
+         systemctl enable kubelet
+         kubeadm config images pull
+         kubeadm init --pod-network-cidr={{POD_NETWORK}} --cri-socket /var/run/crio/crio.sock --upload-certs --control-plane-endpoint={{CONTROL_PLANE_ENDPOINT}}
+    - name: Add the user {{CONTROL_PANE_USER}} with a specific uid and a primary group of {{CONTROL_PANE_USER}}
+      become: yes
+      ansible.builtin.user:
+        name: "{{ CONTROL_PANE_USER }}"
+        comment: "{{ CONTROL_PANE_USER }}" 
+        uid: 1040
+        group: "{{ CONTROL_PANE_USER }}"
+    - name: create a home directory inside user 
+      become: "{{ CONTROL_PANE_USER }}"
+      shell: |
+          mkdir -p /home/{{CONTROL_PANE_USER}}/.kube
+    - name: copy file to dir
+      become: yes
+      shell: |
+           cp -f /etc/kubernetes/admin.conf /home/{{CONTROL_PANE_USER}}/.kube/config
+           chown $(id -u):$(id -g) /home/{{CONTROL_PANE_USER}}/.kube/config
+    - name: install network plugin
+      become: "{{ CONTROL_PANE_USER }}"
+      shell: |
+           kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml 
+           kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
